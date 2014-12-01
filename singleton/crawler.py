@@ -105,16 +105,16 @@ def download_images(thread_name):
           # Get a base name, for example 'image.png' to name file locally
           basename = os.path.basename(src)
 
-        if src not in singleton.downloaded:
-          singleton.downloaded.add(src)
-          print 'Downloading', src
-          # Download image to local filesystem
-          urllib.urlretrieve(src, os.path.join('images', basename))
+          if src not in singleton.downloaded:
+            singleton.downloaded.add(src)
+            print 'Downloading', src
+            # Download image to local filesystem
+            urllib.urlretrieve(src, os.path.join('images', basename))
 
-          print thread_name, 'finished downloading images from', url
+        print thread_name, 'finished downloading images from', url
 
 if __name__ == '__main__':
-      root = 'http://python.org'
+      root = 'http://tipidpc.com'
 
 
       parsed_root = urlparse(root)
