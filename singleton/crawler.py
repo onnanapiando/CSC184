@@ -12,6 +12,10 @@ class Singleton(object):
         cls.instance = super(Singleton, cls).__new__(cls)
       return cls.instance
 
+class website_url(object):  
+    def __init__(self, website):
+      self.website = website
+
 class ImageDownloaderThread(threading.Thread):
     """A thread for downloading images in parallel."""
     def __init__(self, thread_id, name, counter):
@@ -114,7 +118,7 @@ def download_images(thread_name):
         print thread_name, 'finished downloading images from', url
 
 if __name__ == '__main__':
-      root = 'http://tipidpc.com'
+      root = 'http://localhost/GameOverseer/AboutUs.html' 
 
 
       parsed_root = urlparse(root)
