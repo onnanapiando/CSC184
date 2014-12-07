@@ -1,4 +1,7 @@
 import time
+from abc import ABCMeta, abstractmethod
+import datetime
+
 class Subject(object):
   def __init__(self):
     self.observers = []
@@ -20,3 +23,13 @@ class Subject(object):
     self.cur_time = time.time()
     for observer in self.observers:
       observer.notify(self.cur_time)
+
+
+class Observer(object):
+  """Abstract class for observers, provides notify method as interface for subjects."""
+
+  __metaclass__ = ABCMeta
+
+  @abstractmethod
+  def notify(self, unix_timestamp):
+    pass
