@@ -62,3 +62,21 @@ class Proxy(AbstractSubject):
 
     print 'Deleted object. Count of objects = ',
       self.__class__.reference_count
+
+if __name__ == '__main__':
+  proxy1 = Proxy()
+  print
+
+  proxy2 = Proxy()
+  print
+  proxy3 = Proxy()
+  print
+
+  proxy1.sort(reverse=True)
+  print
+ 
+  print 'Deleting proxy2'
+  del proxy2
+  print
+
+  print 'The other objects are deleted upon program termination'
