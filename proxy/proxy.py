@@ -6,19 +6,19 @@ class AbstractSubject(object):
 
   __metaclass__ = ABCMeta
 
-@abstractmethod
-def sort(self, reverse=False):
-  pass
+  @abstractmethod
+  def sort(self, reverse=False):
+    pass
 
 class RealSubject(AbstractSubject):
   """A class for a heavy object which takes a lot of memory
 space and takes some time to instantiate."""
 
-def __init__(self):
-  self.digits = []
+  def __init__(self):
+    self.digits = []
 
-  for i in xrange(10000000):
-    self.digits.append(random.random())
+    for i in xrange(10000000):
+      self.digits.append(random.random())
 
   def sort(self, reverse=False):
     self.digits.sort()
@@ -52,16 +52,16 @@ class Proxy(AbstractSubject):
 
     self.__class__.cached_object.sort(reverse=reverse)
 
+
   def __del__(self):
     """Decreases a reference to an object, if the number of references is 0, delete the object."""
     self.__class__.reference_count -= 1
-
+    
     if self.__class__.reference_count == 0:
       print 'Number of reference_count is 0. Deleting cached object...'
       del self.__class__.cached_object
 
-    print 'Deleted object. Count of objects = ',
-      self.__class__.reference_count
+    print 'Deleted object. Count of objects = ',self.__class__.reference_count
 
 if __name__ == '__main__':
   proxy1 = Proxy()
