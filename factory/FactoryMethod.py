@@ -106,8 +106,8 @@ class FTPPort(Port):
       return '21'
 
 if __name__ == '__main__':
-    domain =  'ftp.freebsd.org' #'localhost' 
-    path =   '/pub/FreeBSD/' #''
+    domain = 'ftp.freebsd.org' 
+    path =   '/pub/FreeBSD/' 
 
     protocol = input('Connecting to {}. Which Protocol to use? (0-http,1-ftp): '.format(domain))
 
