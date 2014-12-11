@@ -10,33 +10,15 @@ import pickle
 class WeatherProvider(object):
   def __init__(self):
     self.api_url = 'http://api.openweathermap.org/data/2.5/forecast?q={},{}'
+  
   def get_weather_data(self, city, country):
     city = urllib.quote(city)
     url = self.api_url.format(city, country)
     return urllib2.urlopen(url).read()
-{
-   "list": [
-     {
-        "main": {
-          "temp":280.28,
 
-        },
-        "dt_txt": "2013-10-24 00:00:00"
-},
-{
-        "main": {
-          "temp": 279.54,
-        },
-        "dt_txt": "2013-10-24 03:00:00"
-      },
-      {
-        "main": {
-          "temp": 278.64,
-        },
-        "dt_txt": "2013-10-26 06:00:00"
-      },
-  ]
-}
+class website_url(object):  
+    def __init__(self, website):
+      self.website = website
 
 class Parser(object):
   def parse_weather_data(self, weather_data):
